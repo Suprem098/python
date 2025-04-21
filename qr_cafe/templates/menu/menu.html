@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="menu">
+    <h1>Menu</h1>
+    <ul>
+      {% for menu_item in menu_items %}
+        <li>
+          <img class="menu-image" src="{{ menu_item.photos.url }}" alt="{{ menu_item.name }}">
+          <div class="menu-name">{{ menu_item.name }}</div>
+          <div class="menu-description">{{ menu_item.description }}</div>
+          <div class="menu-price">Rs.{{ menu_item.price }}</div>
+          <a href="{% url 'place_order' %}?item={{ menu_item.id }}" class="order-button">Order</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
