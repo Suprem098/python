@@ -1,21 +1,45 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block content %}
-  <div class="order-form-container">
+<div class="order-form-container">
     <h1>Place Your Order</h1>
-    <form method="post" class="order-form">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit" class="submit-button">Submit Order</button>
+    <form method="post" class="order-form" novalidate>
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div>
+            <label for="{{ form.item.id_for_label }}">Menu Item</label>
+            {{ form.item }}
+            {% if form.item.errors %}
+                <ul class="form-errors">
+                    {% for error in form.item.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        <div>
+            <label for="{{ form.quantity.id_for_label }}">Quantity</label>
+            {{ form.quantity }}
+            {% if form.quantity.errors %}
+                <ul class="form-errors">
+                    {% for error in form.quantity.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        <div>
+            <label for="{{ form.table_no.id_for_label }}">Table Number</label>
+            {{ form.table_no }}
+            {% if form.table_no.errors %}
+                <ul class="form-errors">
+                    {% for error in form.table_no.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        <button type="submit" class="submit-button">Submit Order</button>
     </form>
-    {% if errors %}
-      <ul class="form-errors">
-        {% for field, error_list in errors.items %}
-          {% for error in error_list %}
-            <li>{{ field }}: {{ error }}</li>
-          {% endfor %}
-        {% endfor %}
-      </ul>
-    {% endif %}
-  </div>
+</div>
 {% endblock %}

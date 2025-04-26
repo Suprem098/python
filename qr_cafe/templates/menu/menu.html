@@ -1,18 +1,50 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block content %}
-  <div class="menu">
-    <h1>Menu</h1>
-    <ul>
-      {% for menu_item in menu_items %}
-        <li>
-          <img class="menu-image" src="{{ menu_item.photos.url }}" alt="{{ menu_item.name }}">
-          <div class="menu-name">{{ menu_item.name }}</div>
-          <div class="menu-description">{{ menu_item.description }}</div>
-          <div class="menu-price">Rs.{{ menu_item.price }}</div>
-          <a href="{% url 'place_order' %}?item={{ menu_item.id }}" class="order-button">Order</a>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
+<style>
+button {
+    background-color: gray;
+    color: gray;
+    font-weight: 700;
+    font-size: 1.1em;
+    border-radius: 30px;
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.7);
+    padding: 12px 28px;
+    border: none;
+    
+}
+
+
+
+button a.order-button {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+</style>
+<div class="container">
+   <center> <h1>Our Menu</h1></center>
+    {% if menu_items %}
+        <div class="menu-items">
+            {% for item in menu_items %}
+                <div class="menu-item">
+                    <img src="{{ item.photos.url }}" alt="{{ item.name }}" class="menu-image">
+                    <h2>{{ item.name }}</h2>
+                    {% if item.description %}
+                        <p>{{ item.description }}</p>
+                    {% endif %}
+                    <p>Price: Rs{{ item.price }}</p>
+                    {% if item.photos %}
+                        
+                    {% endif %}
+                    <button><a href="{% url 'place_order' %}?item={{ item.id }}" class="order-button">Order Now</a></button>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No menu items available at the moment.</p>
+    {% endif %}
+</div>
 {% endblock %}

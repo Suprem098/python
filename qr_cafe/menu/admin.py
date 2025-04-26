@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import MenuItem, Order
+from .models import MenuItem, Order, Feedback
 from unfold.admin import TabularInline , ModelAdmin
 from . import models
 
@@ -23,3 +23,13 @@ class MenuItem(ModelAdmin):
 @admin.register(models.Order)
 class OrderAdmin(ModelAdmin):
     pass
+
+@admin.register(models.CafeModel)
+class CafeAdmin(ModelAdmin):
+    pass
+
+@admin.register(models.Feedback)
+class FeedbackAdmin(ModelAdmin):
+    list_display = ('id', 'name', 'email', 'created_at','message')
+    list_filter = ('created_at',)
+    search_fields = ('name', 'email', 'message')
