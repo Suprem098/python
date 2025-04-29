@@ -27,6 +27,14 @@
     </style>
 </head>
 <body class="main-body">
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+            <li><a href="{% url 'cafe_list' %}" class="nav-link">Cafe</a></li>
+            <li><a href="{% url 'menu' %}" class="nav-link">Menu</a></li>
+            <li><a href="{% url 'feedback' %}" class="nav-link">Feedback</a></li>
+        </ul>
+    </nav>
     {% block content %}
     {% endblock %}
 </body>

@@ -39,6 +39,17 @@
                 </ul>
             {% endif %}
         </div>
+        <div>
+            <label for="{{ form.payment_method.id_for_label }}">Payment Method</label>
+            {{ form.payment_method }}
+            {% if form.payment_method.errors %}
+                <ul class="form-errors">
+                    {% for error in form.payment_method.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
         <button type="submit" class="submit-button">Submit Order</button>
     </form>
 </div>

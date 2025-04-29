@@ -40,9 +40,16 @@ class CafeModel(models.Model):
 
 class Order(models.Model):
     
+    PAYMENT_METHOD_CHOICES = [
+        ('cash', 'Cash'),
+        ('card', 'Card'),
+        ('mobile', 'Mobile Payment'),
+    ]
+
     item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
     quantity = models.IntegerField()
     table_no = models.CharField(max_length=10)
+    payment_method = models.CharField(max_length=20, choices=PAYMENT_METHOD_CHOICES, default='cash')
     status = models.CharField(max_length=50, default='Pending')
 
     def __str__(self):

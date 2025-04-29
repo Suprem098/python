@@ -1,95 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Cafe Connect</title>
-    <style>
-        body.main-body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f9f7f1;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        h1.text-center {
-            text-align: center;
-            color: #6b4c3b;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-        p {
-            line-height: 1.6;
-            font-size: 1.1em;
-            color: #555;
-        }
-        #contact-us h2 {
-            color: #6b4c3b;
-            margin-top: 40px;
-            margin-bottom: 15px;
-            font-size: 2em;
-        }
-        #contact-us p {
-            margin-bottom: 15px;
-        }
-        #contact-us ul {
-            list-style-type: none;
-            padding-left: 0;
-            margin-bottom: 20px;
-        }
-        #contact-us ul li {
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-        #contact-us a {
-            color: #a0522d;
-            text-decoration: none;
-        }
-        #contact-us a:hover {
-            text-decoration: underline;
-        }
-        form label {
-            font-weight: 600;
-        }
-        form input[type="text"],
-        form input[type="email"],
-        form input[type="tel"],
-        form textarea {
-            width: 100%;
-            padding: 8px 10px;
-            margin-top: 5px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1em;
-            box-sizing: border-box;
-            font-family: inherit;
-        }
-        form input[type="submit"] {
-            background-color: #6b4c3b;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 1.1em;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        form input[type="submit"]:hover {
-            background-color: #a0522d;
-        }
-    </style>
-</head>
-<body class="main-body">
-    <div class="container">
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container index-container">
         <h1 class="text-center">Welcome to QR Cafe Connect</h1>
         <p>
             QR Cafe Connect is a comprehensive platform designed to help cafes showcase their menus digitally and connect with customers seamlessly. Our project aims to simplify the ordering process by providing an easy-to-use interface for browsing menus, placing orders, and making payments online. Whether you are a small local cafe or a large chain, QR Cafe Connect offers a customizable solution to enhance your customer experience and streamline your operations.
@@ -112,13 +24,10 @@
                 <input type="tel" id="phone" name="phone"><br><br>
                 <label for="message">Message:</label><br>
                 <textarea id="message" name="message" rows="4"></textarea><br><br>
-                <input type="submit" value="Submit">
+                <center><input type="submit" value="Submit"></center>
             </form>
         </section>
 
-        <div style="text-align:center; margin-top: 30px;">
-            <a href="{% url 'feedback' %}" style="padding: 12px 25px; background-color: #6b4c3b; color: white; border-radius: 5px; text-decoration: none; font-size: 1.2em;">Give Feedback</a>
-        </div>
+    
     </div>
-</body>
-</html>
+{% endblock %}

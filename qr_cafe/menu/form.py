@@ -5,7 +5,7 @@ class OrderForm(forms.ModelForm):
 
     class Meta:
         model = Order
-        fields = ('item', 'quantity', 'table_no')
+        fields = ('item', 'quantity', 'table_no', 'payment_method')
 
     def clean_quantity(self):
         quantity = self.cleaned_data.get('quantity')
