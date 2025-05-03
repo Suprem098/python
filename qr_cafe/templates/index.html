@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/index_improvements.css' %}">
+{% endblock %}
 
 {% block content %}
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        alert('Your submission has been received. Thank you!');
+    });
+</script>
+    
     <div class="container index-container">
         <h1 class="text-center">Welcome to QR Cafe Connect</h1>
         <p>
@@ -13,7 +24,14 @@
                 <li>Email: <a href="mailto:supremegiri505@gmail.com">supremegiri505@gmail.com</a></li>
                 <li>Phone: +977-9876543210</li>
             </ul>
-            <form action="mailto:supremegiri505@gmail.com" method="post" enctype="text/plain">
+    {% if success %}
+    <div class="alert alert-success" style="color: green; font-weight: bold; margin-bottom: 15px;">
+        Your submission has been received. Thank you!
+    </div>
+    {% endif %}
+
+            <form id="contactForm" action="{% url 'contact_submit' %}" method="post" enctype="application/x-www-form-urlencoded">
+                {% csrf_token %}
                 <label for="cafe-name">Cafe Name:</label><br>
                 <input type="text" id="cafe-name" name="cafe-name" required><br><br>
                 <label for="contact-person">Contact Person:</label><br>
@@ -26,8 +44,7 @@
                 <textarea id="message" name="message" rows="4"></textarea><br><br>
                 <center><input type="submit" value="Submit"></center>
             </form>
+            
         </section>
-
-    
     </div>
 {% endblock %}

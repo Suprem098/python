@@ -8,8 +8,12 @@ from .form import OrderForm, FeedbackForm
 def home(request):
     return render(request, 'index.html')
 
+from django.conf import settings
+from django.urls import reverse
+from django.http import JsonResponse
+
 def generate_qr(request):
-    url = "http://192.168.0.18:8000/menu/"
+    url = request.build_absolute_uri(reverse('menu'))
     qr = qrcode.make(url)
     response = HttpResponse(content_type="image/png")
     qr.save(response, "PNG")
@@ -28,7 +32,8 @@ def place_order(request):
             order = form.save()
             return redirect('order_confirmation', order_id=order.id)
         else:
-            return render(request, 'menu/order_form.html', {'form': form, 'errors': form.errors})
+            errors = form.errors.as_json()
+            return render(request, 'menu/order_form.html', {'form': form, 'errors': form.errors, 'errors_json': errors})
     else:
         if item_id:
             form = OrderForm(initial={'item': item_id})
@@ -59,8 +64,51 @@ def feedback_view(request):
             form.save()
             return render(request, 'menu/feedback.html', {'form': FeedbackForm(), 'success': True})
         else:
-            return render(request, 'menu/feedback.html', {'form': form, 'errors': form.errors})
+            errors = form.errors.as_json()
+            return render(request, 'menu/feedback.html', {'form': form, 'errors': form.errors, 'errors_json': errors})
     else:
         form = FeedbackForm()
     return render(request, 'menu/feedback.html', {'form': form})
+
+from django.core.mail import send_mail
+#from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
+from .models import ContactSubmission
+
+from django.shortcuts import render
+
+def contact_form_submit(request):
+    if request.method == 'POST':
+        cafe_name = request.POST.get('cafe-name')
+        contact_person = request.POST.get('contact-person')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        message = request.POST.get('message')
+
+        # Save to database
+        ContactSubmission.objects.create(
+            cafe_name=cafe_name,
+            contact_person=contact_person,
+            email=email,
+            phone=phone,
+            message=message
+        )
+
+        subject = f"New Cafe Contact Submission from {cafe_name}"
+        body = f"""\
+Cafe Name: {cafe_name}
+Contact Person: {contact_person}
+Email: {email}
+Phone: {phone}
+Message: {message}
+"""
+
+        admin_email = 'admin@example.com'  # Replace with actual admin email
+        send_mail(subject, body, email, [admin_email], fail_silently=False)
+
+        return render(request, 'index.html', {'success': True})
+    else:
+        return render(request, 'index.html')
 

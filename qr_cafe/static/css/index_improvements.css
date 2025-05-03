@@ -1,0 +1,108 @@
+/* Index Page Container */
+.index-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px 25px;
+    background: #f9f6f1;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(107, 76, 59, 0.3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #4b3a2a;
+}
+
+/* Headings */
+.index-container h1, .index-container h2 {
+    text-align: center;
+    color: #6b4c3b;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+/* Paragraphs */
+.index-container p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Contact Us Section */
+#contact-us {
+    margin-top: 40px;
+}
+
+#contact-us ul {
+    list-style: none;
+    padding-left: 0;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#contact-us ul li {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+/* Contact Form */
+#contact-us form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Labels */
+#contact-us label {
+    display: block;
+    font-weight: 600;
+    color: #6b4c3b;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+/* Inputs and Textarea */
+#contact-us input[type="text"],
+#contact-us input[type="email"],
+#contact-us input[type="tel"],
+#contact-us textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 2px solid #a3bffa;
+    font-size: 1rem;
+    color: #333;
+    box-sizing: border-box;
+    font-family: inherit;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact-us input[type="text"]:focus,
+#contact-us input[type="email"]:focus,
+#contact-us input[type="tel"]:focus,
+#contact-us textarea:focus {
+    border-color: #6b4c3b;
+    box-shadow: 0 0 8px rgba(107, 76, 59, 0.6);
+    outline: none;
+}
+
+/* Submit Button */
+#contact-us input[type="submit"] {
+    background-color: #6b4c3b;
+    color: white;
+    border: none;
+    padding: 18px 30px;
+    font-size: 1.3rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 900;
+    box-shadow: 0 12px 35px rgba(160, 82, 45, 0.8);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+    margin: 0 auto;
+    width: 60%;
+}
+
+#contact-us input[type="submit"]:hover {
+    background-color: #a0522d;
+    transform: scale(1.1);
+    box-shadow: 0 15px 45px rgba(160, 82, 45, 1);
+}

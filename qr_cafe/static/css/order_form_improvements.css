@@ -1,0 +1,93 @@
+/* Order Form Container */
+.order-form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px 25px;
+    background: #f9f6f1;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(107, 76, 59, 0.3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Form Title */
+.order-form-container h1 {
+    text-align: center;
+    color: #6b4c3b;
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+/* Form Layout */
+.order-form div {
+    margin-bottom: 20px;
+}
+
+/* Labels */
+.order-form label {
+    display: block;
+    font-weight: 600;
+    color: #6b4c3b;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+/* Inputs and Selects */
+.order-form input[type="text"],
+.order-form input[type="email"],
+.order-form input[type="tel"],
+.order-form input[type="number"],
+.order-form select,
+.order-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1.5px solid #a3bffa;
+    font-size: 1rem;
+    color: #333;
+    box-sizing: border-box;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.order-form input[type="text"]:focus,
+.order-form input[type="email"]:focus,
+.order-form input[type="tel"]:focus,
+.order-form input[type="number"]:focus,
+.order-form select:focus,
+.order-form textarea:focus {
+    border-color: #6b4c3b;
+    outline: none;
+}
+
+/* Error Messages */
+.form-errors {
+    margin-top: 8px;
+    color: #d9534f;
+    list-style-type: none;
+    padding-left: 0;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* Submit Button */
+.order-form button.submit-button {
+    display: block;
+    width: 100%;
+    background-color: #6b4c3b;
+    color: white;
+    border: none;
+    padding: 16px 0;
+    font-size: 1.3rem;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: 800;
+    box-shadow: 0 10px 30px rgba(160, 82, 45, 0.7);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
+}
+
+.order-form button.submit-button:hover {
+    background-color: #a0522d;
+    transform: scale(1.05);
+}

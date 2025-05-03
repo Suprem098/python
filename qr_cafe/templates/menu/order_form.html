@@ -1,4 +1,9 @@
-{% extends "base.html" %}
+{% load static %}
+{% comment %} {% extends "base.html" %} {% endcomment %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/order_form_improvements.css' %}">
+{% endblock %}
 
 {% block content %}
 <div class="order-form-container">

@@ -1,0 +1,129 @@
+body.main-body {
+    background-image: url("../css/images/bg1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    z-index: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #4b3a2a;
+    margin: 0;
+    padding: 0;
+}
+
+body.main-body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: -1;
+}
+
+.container {
+    max-width: 900px;
+    margin: 60px auto 80px auto;
+    padding: 40px 35px;
+    background: #fffaf0;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(107, 76, 59, 0.25);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #6b4c3b;
+    font-weight: 800;
+    margin-bottom: 30px;
+    letter-spacing: 1.2px;
+}
+
+p {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+#contact-us {
+    margin-top: 50px;
+}
+
+#contact-us ul {
+    list-style: none;
+    padding-left: 0;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+#contact-us ul li {
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+}
+
+#contact-us form {
+    max-width: 520px;
+    margin: 0 auto;
+    background: #fef9f4;
+    padding: 30px 25px;
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(107, 76, 59, 0.15);
+}
+
+#contact-us label {
+    display: block;
+    font-weight: 700;
+    color: #6b4c3b;
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+}
+
+#contact-us input[type="text"],
+#contact-us input[type="email"],
+#contact-us input[type="tel"],
+#contact-us textarea {
+    width: 100%;
+    padding: 16px 20px;
+    border-radius: 14px;
+    border: 2px solid #c9d6f2;
+    font-size: 1.05rem;
+    color: #3a3a3a;
+    box-sizing: border-box;
+    font-family: inherit;
+    margin-bottom: 25px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact-us input[type="text"]:focus,
+#contact-us input[type="email"]:focus,
+#contact-us input[type="tel"]:focus,
+#contact-us textarea:focus {
+    border-color: #6b4c3b;
+    box-shadow: 0 0 10px rgba(107, 76, 59, 0.7);
+    outline: none;
+}
+
+#contact-us input[type="submit"] {
+    background-color: #6b4c3b;
+    color: white;
+    border: none;
+    padding: 20px 35px;
+    font-size: 1.4rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 900;
+    box-shadow: 0 14px 40px rgba(160, 82, 45, 0.85);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+    margin: 0 auto;
+    width: 65%;
+}
+
+#contact-us input[type="submit"]:hover {
+    background-color: #a0522d;
+    transform: scale(1.12);
+    box-shadow: 0 18px 50px rgba(160, 82, 45, 1);
+}
